@@ -48,10 +48,33 @@ router.post('/',(req,res)=>{
     });
 });
 
+router.post('/login',(req, res) => {
+    //. exoect email and password
+    User.findOne({
+        where: {
+        email: req.body.email
+        }
+    }). then(dbUserData => {
+        if(!dbUserData){
+            res.status(400).json({message: 'wrong information'});
+            return;
+        }
+        // verfiy password 
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        if(!validPassword){
+            res.status(400).json({message: 'Wrong information'})
+            return;
+        } 
+        res.json({user: dbUserData, message: 'You are now logged in!' });
+        // res.json({user: dbUserData});
+    });
+});
+
 // update the user by id
 router.put('/:id',(req,res)=>{
     //req.body where the id = req.params.id
-    User.update(reg.body, {
+    User.update(req.body, {
+        individualHooks:true,
         where: {
             id: req.params.id
         }
@@ -88,6 +111,8 @@ router.delete('/:id',(req,res)=>{
         res.status(500).json(err);
     });
 });
+
+
 
 module.exports = router;
 
