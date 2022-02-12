@@ -1,8 +1,8 @@
 # just-tech-news
-a technicale news website where user can post, update, delete, like and comment on other users post. 
+a technology news website where users can post, update, delete, like and comment on other users' posts. 
 # Technology used for designing the application 
-the app was designed by using HTML, CSS, js, node.js, express.js, MySQL, handlerbarsand Heroku to post technical news
-the app was artitact based on the MVC  
+the app was designed by using HTML, CSS, js, node.js, express.js, MySQL, handlebars, and Heroku to post technical news
+the app was designed based on the MVC model   
 
 # Installation
  to run the application on a local computer please run the following code to install all necessary dependencies 
@@ -21,5 +21,6 @@ https://rocky-tundra-69689.herokuapp.com/
 visiter need to create an account 
 # live app url 
 https://rocky-tundra-69689.herokuapp.com/
+
 
 
